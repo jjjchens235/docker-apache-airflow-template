@@ -16,12 +16,12 @@ default_args = {
     "email": ["airflow@airflow.com"],
     "email_on_failure": False,
     "email_on_retry": False,
-    "retries": 1
+    "retries": 0
 }
 
 
 dag = DAG("hello_world", default_args=default_args,
-          schedule_interval="* 9 * * *", max_active_runs=1)
+          schedule_interval="0 9 * * *", max_active_runs=1)
 
 start_of_data_pipeline = DummyOperator(task_id='start_of_data_pipeline', dag=dag)
 
